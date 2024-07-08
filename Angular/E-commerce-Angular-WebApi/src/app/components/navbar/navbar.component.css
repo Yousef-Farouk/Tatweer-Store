@@ -1,0 +1,42 @@
+/* .nav-container
+{
+    position: absolute;
+    background-color: transparent;
+} */
+
+nav{
+    margin: 0px 133px 0px 133px;
+    padding: 0px 15px;
+    /* position: fixed;  */
+    z-index: 1000;
+    background-color: transparent;
+
+}
+.nav-item
+{
+    margin:0px 4px 0px 14px;
+    padding: 20px 10px 20px 0px ;
+    font-weight: 14px;
+    color: #333;
+}
+
+.nav-item a 
+{
+    padding: 5px 0;
+    color: #333;
+}
+
+.icons i
+{
+    font-size: 20px;
+    font-family: Arial;
+    padding: 0px 11px 0px 22px;
+}
+
+.navbar-brand{
+
+    margin-right: 55px;
+}
+
+
+

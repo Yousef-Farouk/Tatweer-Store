@@ -1,0 +1,67 @@
+
+<app-navbar></app-navbar>
+<form class="product-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-7 mx-auto mb-5">
+                <div class="table-container ">
+                    <div class="wrap-table-shopping-cart">
+                        <div class="table-shopping-cart">
+                            <table class="table-shopping-cart">
+								<tr class="table_head">
+									<th class="column-1">Product</th>
+									<th class="column-2 text-center">Price</th>
+									<th class="column-3 ">Quantity</th>
+									<th class="column-4 text-center">Total</th>
+									<th class="column-5 pe-5" >Remove</th>
+								</tr>
+
+								<tr *ngFor="let item of cart?.cartItems" class="table_row">
+									<td class="column-1">
+										{{item.product.name}}
+                                    </td>
+									<td class="column-2 text-center">{{item.product.price}}</td>
+									<td class="column-3 ">{{item.quantity}}</td>
+									<td class="column-4">
+
+										<div class="wrap-num-product">
+											<div class="btn-num-product-down " (click)="decreaseQuantity(item)">
+												<i class="bi bi-dash-lg"></i>
+											</div>
+											<input class="text-center num-product border-0"  name="num-product1" value={{item.quantity}}>
+											<div class="btn-num-product-up" (click)="increaseQuantity(item)">
+												<i class="bi bi-plus-lg"></i>
+											</div>
+										</div>
+									</td>
+                                    <td class="column-5">
+                                        <button class="btn btn-sm btn-danger remove" (click)="removeProduct($event,item.productId)">
+                                            <i class="bi bi-x-lg "></i>
+                                        </button>
+                                    </td>
+								</tr>
+							</table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-xl-5 col-sm-10 mx-auto mb-5">
+                <div class="price-container">
+                    <h4 class="text-uppercase btext">Cart Totals</h4>
+                    <div class="d-flex justify-content-between align-items-center pb-4 pt-4">
+                        <div class="msize">
+                            <span class="mtext">Total:</span>
+                        </div>
+                        <div class="msize">
+                            <span class="mtext">${{cart?.totalAmount}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</form>
+
+

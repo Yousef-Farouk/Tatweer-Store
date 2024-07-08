@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<div class="mt-5 container mb-5">
+    <h1 class="text-muted text-center">Our Products</h1>
+
+    <div class="row my-5">
+      <div class="d-flex justify-content-start col-4">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchText" name="searchText" (input)="filter()">
+        <button class="btn bg-dark text-white" type="button" style="font-family: Poppins-Bold;" (click)="filter()">Search</button>
+      </div>  
+    </div>
+    
+    <div class="row mt-4 mb-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Visible</th>
+            <th scope="col">Add To Cart</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th scope="row">{{ product.id }}</th>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.inStockQuantity}}</td>
+            <td> <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [checked]="product.visible" disabled>
+            </div></td>
+            <td class="">
+              <i class="bi bi-cart" (click)='addToCart(product)'></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+ 

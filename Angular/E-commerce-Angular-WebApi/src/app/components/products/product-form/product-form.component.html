@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <h1 class="my-2 text-muted text-center">{{ productId == 0 ? "Add Product" : "Edit Product" }}</h1>
+  <div class="col-6">
+    <form [formGroup]="productForm" (submit)="productHandler()">
+      <div class="mb-3">
+        <label for="productName" class="form-label pb-1 fs-5">Product Name</label>
+        <input
+          type="text"
+          name="productName"
+          formControlName="name"
+          class="form-control"
+          id="productName"
+          aria-describedby="nameHelp"
+          placeholder="Enter Product Name"
+        />
+        <ng-container *ngIf="getName.touched || submited">
+          <div
+            *ngIf="getName.hasError('required')"
+            id="nameHelp"
+            class="form-text text-danger my-3 fs-6"
+          >
+            Product Name is Required
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label pb-1 fs-5">Price</label>
+        <input
+          formControlName="price"
+          type="number"
+          name="price"
+          class="form-control"
+          id="price"
+          placeholder="Enter Product Price"
+        />
+        <ng-container *ngIf="getPrice.touched || submited">
+          <div
+            *ngIf="getPrice.hasError('required')"
+            id="priceHelp"
+            class="form-text text-danger my-3 fs-6"
+          >
+            Price is Required
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="mb-3">
+        <label for="quantity" class="form-label pb-1 fs-5">Quantity</label>
+        <input
+          formControlName="inStockQuantity"
+          name="quantity"
+          type="number"
+          class="form-control"
+          id="quantity"
+          placeholder="Enter Product Quantity"
+        />
+        <ng-container *ngIf="getQuantity.touched || submited">
+          <div
+            *ngIf="getQuantity.hasError('required')"
+            id="quantityHelp"
+            class="form-text text-danger fs-6 my-3"
+          >
+            Quantity is Required
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="form-check form-switch d-flex align-items-center ps-0 my-4">
+        <label class="form-check-label fs-5" for="flexSwitchCheckDefault">Is Visible</label>
+        <input class="form-check-input my-2 ms-4 fs-5" type="checkbox" id="flexSwitchCheckDefault" formControlName="visible">
+        <ng-container *ngIf="getVisible.touched || submited">
+          <div
+            *ngIf="getVisible.hasError('required')"
+            id="visibleHelp"
+            class="form-text text-danger ms-2 fs-6"
+          >
+            Visibility is Required
+          </div>
+        </ng-container>
+      </div>
+
+      <button type="submit" class="btn btn-dark mb-5">{{ productId == 0 ? "Add Product" : "Edit Product" }}</button>
+    </form>
+  </div>
+</div>
