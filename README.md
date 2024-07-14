@@ -19,9 +19,4 @@ This is a Product Management Application built with Angular and ASP.NET Core. It
 - .NET Core WebApi 
 - SQL Server
 
-## Installation
-
-1. **Clone the repository:**
-   git clone https://github.com/yourusername/product-management-app.git
-
 
